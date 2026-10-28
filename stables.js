@@ -95,7 +95,12 @@
 
 // Create and invoke a function that returns (not logs) the nickname of a chosen horse. Log out
 // the return value outside of the function.
+
+
+
+// Variables
 let stableName = "Keoni's Stable"
+let totalStalls = 6
 
 let lebron = {
     name: "LeBron",
@@ -131,9 +136,10 @@ let tung = {
     favoriteSport: "Soccer",
 }
 
+// New Horse
 let poophead = {
     name: "Poophead",
-    nickname: "shidhead",
+    nickname: "Shidhead",
     favoriteTreat: "Toilet Water",
     age: 6,
     monthlyRent: 20,
@@ -142,25 +148,35 @@ let poophead = {
     favoriteSport: "Sumo Wrestling",
 }
 
-
 let horses = [lebron, drake, tung, poophead]
 
-// Dot notation hungry boolean
+// Dot notation
 horses[0].isHungry = true
 horses[1].isHungry = true
 horses[2].isHungry = false
 horses[3].isHungry = false
 
-let totalStalls = 6
+// Functions
+function availableStalls(){
+    let available = totalStalls - horses.length
+    let availableMessage = "There are " + available + " stables available."
+    console.log(availableMessage)
+}
+
+function latePayFunc(horse){
+    let totalOwed = horse.monthlyRent * 1.2
+    console.log(horse.name + " owes $" + totalOwed + " in late rent.")
+}
+
+function horseNickname(horse){
+    return horse.nickname
+}
+
+// Function invokes
+latePayFunc(horses[0])
+console.log(horseNickname(horses[3]))
 
 
-
-
+// Messages
 let welcomeMessage = ("Welcome to " + stableName)
-
-let latePayment = ("Your monthly payment for " + lebron.name + " is late. The amount owed is " + lebron.fee + "$")
-
-//adwaf
-
-
-
+let latePayMessage = ("Your monthly payment for " + lebron.name + " is late. The amount owed is " + lebron.fee + "$")
