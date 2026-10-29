@@ -58,13 +58,13 @@ horses[2].isHungry = false
 horses[3].isHungry = false
 
 // Functions
-function availableStalls(){
-    let available = totalStalls - horses.length
+function availableStalls(stalls, occupiedStalls){
+    let available = stalls - occupiedStalls
     let availableMessage = "There are " + available + " stables available."
     console.log(availableMessage)
 }
 
-function latePayFunc(horse){
+function getLatePayment(horse){
     let totalOwed = horse.monthlyRent * 1.2
     console.log(horse.name + " owes $" + totalOwed + " in late rent.")
 }
@@ -74,7 +74,7 @@ function horseNickname(horse){
 }
 
 // Function invokes
-latePayFunc(horses[0])
+getLatePayment(horses[0])
 console.log(horseNickname(horses[3]))
 
 
