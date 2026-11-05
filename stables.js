@@ -1,104 +1,82 @@
-// Welcome!
-//
-//                                                  #    #
-//                                             %%% ##   ##
-//                                          %%%%% ###%🎀###
-//                                         %%%%% ### %%% #
-//                                       %%%%%% ### %%% ###
-//                                        %%%% ## %% #######
-//                                       %%%%% # %% #@#####
-//                                     %%%%%% # % #########
-//                                    %%%%% ##### #########
-//                          ###        %% ####### #########
-//                 %%% ############    ########### ########
-//              %%%% ############################### #######
-//            %%%%% ################################## ######
-//          %%%%%% #################################### #C###
-//         %%%🌸%% #####################################  ###
-//         %%%%% #######################################
-//        %%%%%% ############### BEANS ##################
-//     % %%%%%%% ############### BEANS ##################
-//      %%%%%%%%% ############## BEANS ##################
-//     %%%%%%%%%% ########################################
-//  %%% %%%%%%%%   ###### ################################
-//    %%%%%%%%      ###### #################### ##########
-// % %%%🌸%%%%        ####### ########### ###### ##########
-//  %%%%%%%%%         #######  ########### ###### ########
-// %%%%%%%%%%          ##### ###  ######### ####### ######
-//  %%%%%%%%%%          #### ##               ####### ####
-//  %🌸%%%%%%%%%           ## #                  ##### ###
-//   %%  %% % %%         # ##                      ## ###
-//     %   %    %        # ###                      # ###
-//                        # ###                     ## ###
-//                        # ###                     ## ###
-//                        # ####                   #### ##
-//                       ### ###                  ##### ###
-//                      ####  ###                 ####   ##
-//                     #####   ###                 ##    ##
-//                    #####    ####                      ###
-//                     ##        ###                     ###
-//                                ####                     ##
-//                                 ####                    ###
-//                                                         ####
-//                                                          ##
-//
-// This is a template for your assignments and final project. You'll be setting up a stable and making
-// sure it runs smoothly.
-//
-// Please do not create a new file for each assignment!
-// Feel free to keep the headings (e.g.: "Variables"), but please delete any boilerplate
-// comments. E.g.: those seen on lines 58 - 68, for example. They are usually providing directions. 
-// (Your own comments, where necessary, are acceptable.)
-//
-// NOTE: UNLESS SPECIFIED, VARIABLE NAMING IS UP TO YOU. THERE SHOULD BE NO HARD-CODED
-// NUMBERS OR STRINGS WHERE VARIBALES WOULD BE PREFERRED.
 
-//------------------------- Seting up shop (Assignment 1) -------------------------//
-
-// Store information about three horses in your stables.
-// Each horse should have the following information associated with it:
-//
-// - the name of a horse at your stable
-// - the age of the horse
-// - what the horse likes to snack on
-// - the cost to board the horse monthly
-// - the fee for a late payment (monthly rate + 20%)
-//
-// Create a variable and use it to store the name of your stable.
-// Create a variable and use it to store a message for visitors to the stable as a string. It should include the name of your stable.
-// Create a variable and use it to store a message that monthly payment is late, and the amount owing. Include the name of one of your horses in the message.
-const MONTHLY_RATE = 200
-
+// Variables
 let stableName = "Keoni's Stable"
+let totalStalls = 6
 
 let lebron = {
     name: "LeBron",
+    nickname: "Bron",
+    favoriteTreat: "Tacos",
     age: 3,
-    snack: "Tacos",
-    cost: 30,
-    fee: (MONTHLY_RATE * 1.2)
+    monthlyRent: 30,
+    isInside: true,
+    favoriteColor: "Red",
+    favoriteSport: "Basketball",
 }
 
 let drake = {
     name: "Drake",
-    age: 5,
-    snack: "Champagne",
-    cost: 40,
-    fee: (MONTHLY_RATE * 1.2)
+    nickname: "Drizzy",
+    favoriteTreat: "Champagne",
+    age: 4,
+    monthlyRent: 40,
+    isInside: true,
+    favoriteColor: "White",
+    favoriteSport: "Football",
+
 }
 
 let tung = {
     name: "Tung",
-    age: 2,
-    snack: "Chipotle",
-    cost: 20,
-    fee: (MONTHLY_RATE * 1.2)
+    nickname: "Triple T",
+    favoriteTreat: "Chipotle",
+    age: 1,
+    monthlyRent: 50,
+    isInside: true,
+    favoriteColor: "Brown",
+    favoriteSport: "Soccer",
 }
 
+// New Horse
+let poophead = {
+    name: "Poophead",
+    nickname: "Shidhead",
+    favoriteTreat: "Toilet Water",
+    age: 6,
+    monthlyRent: 20,
+    isInside: true,
+    favoriteColor: "Brown",
+    favoriteSport: "Sumo Wrestling",
+}
 
+let horses = [lebron, drake, tung, poophead]
+
+// Dot notation
+horses[0].isHungry = true
+horses[1].isHungry = true
+horses[2].isHungry = false
+horses[3].isHungry = false
+
+// Functions
+function availableStalls(stalls, occupiedStalls){
+    let available = stalls - occupiedStalls
+    let availableMessage = "There are " + available + " stables available."
+    console.log(availableMessage)
+}
+
+function getLatePayment(horse){
+    let totalOwed = horse.monthlyRent * 1.2
+    console.log(horse.name + " owes $" + totalOwed + " in late rent.")
+}
+
+function horseNickname(horse){
+    return horse.nickname
+}
+
+// Function invokes
+getLatePayment(horses[0])
+console.log(horseNickname(horses[3]))
+
+
+// Messages
 let welcomeMessage = ("Welcome to " + stableName)
-
-let latePayment = ("Your monthly payment for " + lebron.name + " is late. The amount owed is " + lebron.fee + "$")
-
-
-
